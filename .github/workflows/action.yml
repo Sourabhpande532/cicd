@@ -1,17 +1,24 @@
-name: PR Checks
-on:
-  pull_request:
-    branches:
-      - main
+name: Calculator Deployment
+
+on: push
 
 jobs:
-  test-pr:
+  test:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Say Hello
-        run: echo "A pull request was opened or updated!"
-        
-      - name: Show PR details
-        run: |
-          echo "This PR is targeting branch: ${{ github.base_ref }}"
-          echo "The code is coming from branch: ${{ github.head_ref }}"
+      - uses: actions/checkout@v4
+
+      - run: node src/calculator.test.js
+
+      - if: success()
+        run: echo "✅ Ready for deployment"
+
+      - if: failure()
+        run: echo "❌ Deployment blocked because tests failed"
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - run: echo "Deploying application..."

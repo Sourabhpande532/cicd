@@ -11,3 +11,5 @@ jobs:
             echo "You pushed to ${{github.ref_name}}"
             echo "from repository ${{github.event.repository.name}}"
             echo "at $(date '+%Y-%m-%d %H:%M %Z')"
+
+# Here we Use the ${{ github.xxx }} context variables to access information about the user, branch, and repository.

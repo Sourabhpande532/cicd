@@ -26,3 +26,5 @@ jobs:
           echo ""
           echo "Health Status:"
           echo "✅ HEALTHY"
+
+# NOTE: here we use Linux commands like df, free, nproc, node -v, and python --version to extract system data.

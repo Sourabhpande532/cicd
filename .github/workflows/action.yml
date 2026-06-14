@@ -1,21 +1,13 @@
-name: Print External Repo Info
+name: Print Dynamic Info
 on: [push]
 
 jobs:
   print-info:
      runs-on: ubuntu-latest
      steps:
-       # Step 1:
-       - name: Checkout External Repo
-         uses: actions/checkout@v4
-         with:
-           repository: 'swapagarwal/cicd'
-
-       # Step 2: Print information dynamically using Git commands
-       - name: Print External Repo Info 
+       - name: Print User Info 
          run: |
-            echo "Hello ${{ github.actor }}"
-            echo "You triggered this workflow."
-            echo "You push to main"
-            echo "from repository $(basename ${{ github.repository }})"
-            echo "at $(date '+%Y-%m-%d %H:%M %Z')"
+            echo "Hello Swapnil"
+            echo "You pushed to main"
+            echo "from repository cicd"
+            echo "at 2026-06-08 10:30 IST"

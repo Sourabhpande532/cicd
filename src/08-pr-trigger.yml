@@ -2,7 +2,7 @@ name: PR Checks
 on:
   pull_request:
     branches:
-      - main
+      - main # it will only run if someone is trying to merge INTO main
 
 jobs:
   test-pr:

@@ -5,17 +5,17 @@ jobs:
   print-info:
      runs-on: ubuntu-latest
      steps:
-       # Step 1: Check out the external repository
+       # Step 1:
        - name: Checkout External Repo
          uses: actions/checkout@v4
          with:
-           repository: 'Swapnil/cicd' # Replace with their GitHub username and repository name
+           repository: 'swapagarwal/cicd'
 
-       # Step 2: Print information using standard git commands
+       # Step 2: Print information dynamically using Git commands
        - name: Print External Repo Info 
          run: |
             echo "Hello ${{ github.actor }}"
             echo "You triggered this workflow."
             echo "You push to main"
-            echo "from repository cicd"
+            echo "from repository $(basename ${{ github.repository }})"
             echo "at $(date '+%Y-%m-%d %H:%M %Z')"

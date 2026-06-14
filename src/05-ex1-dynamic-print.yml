@@ -12,31 +12,21 @@ jobs:
             echo "from repository ${{github.event.repository.name}}"
             echo "at $(date '+%Y-%m-%d %H:%M %Z')"
 
-# Here we Use the ${{ github.xxx }} context variables to access information about the user, branch, and repository.
+# NOTE: Here we Use the ${{ github.xxx }} context variables to access information about the user, branch, and repository.
 
-# Below is how we can access other repo info 
-name: Print External Repo Info
+
+# OR 
+name: Print Dynamic Info
 on: [push]
 
 jobs:
   print-info:
      runs-on: ubuntu-latest
      steps:
-       # Step 1: Check out the external repository
-       - name: Checkout External Repo
-         uses: actions/checkout@v4
-         with:
-           repository: 'Swapnil/cicd' # Replace with their GitHub username and repository name
-
-       # Step 2: Print information using standard git commands
-       - name: Print External Repo Info 
+       - name: Print User Info 
          run: |
-            echo "Hello ${{ github.actor }}"
-            echo "You triggered this workflow."
-            echo "You push to main"
+            echo "Hello Swapnil"
+            echo "You pushed to main"
             echo "from repository cicd"
-            echo "at $(date '+%Y-%m-%d %H:%M %Z')"
+            echo "at 2026-06-08 10:30 IST"
 
-
-
-          

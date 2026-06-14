@@ -4,7 +4,7 @@ on: push
 
 jobs:
   hello:
-    run-on: windows-latest
+    runs-on: windows-latest
 
     steps:
       - run: echo "Hello from GitHub Actions"
